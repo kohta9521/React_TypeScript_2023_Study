@@ -2,21 +2,24 @@ import axios from 'axios';
 import React from 'react';
 import { useState } from 'react';
 import './App.css';
+import { Text } from './Text';
 import Todo from './Todo';
+import { TodoType } from "./types/todo";
+import { UserProfile } from "./UserProfile";
+import { User } from "./types/user";
 
-type TodoType = {
-  "userId": number;
-  "id": number;
-  "title": string;
-  "completed": boolean;
-};
+const user: User = {
+  name: "kohta",
+  hobbies: ["映画", "ゲーム"],
+}
+
 
 function App() {
 
-  const [todos, setTodos] = useState<TodoType>([]);
+  const [todos, setTodos] = useState<Array<TodoType>>([]);
 
   const onClickFetchData = () => {
-    axios.get("https://jsonplaceholder.typicode.com/todos").then((res) => {
+    axios.get<Array<TodoType>>("https://jsonplaceholder.typicode.com/todos").then((res) => {
       setTodos(res.data);
     })
   }
@@ -24,10 +27,12 @@ function App() {
   return (
     <div className="App">
       <h1>Ts project</h1>
+      <UserProfile user={user} />
+      <Text color="red" fontSize="18px" />
 
       <button onClick={onClickFetchData}>データ取得</button>
     {todos.map((todo) => (
-      <Todo title={todo.title} userid={todo.userId} />
+      <Todo key={todo.id} title={todo.title} userId={todo.userId} completed={todo.completed} />
     ))}
     </div>
   );
