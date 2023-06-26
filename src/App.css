@@ -1,4 +1,5 @@
-* {
-  text-align: center;
-  margin: 9 auto;
+body {
+  background-color: #89cff0;
+  margin: 0;
+  padding: 0;
 }
