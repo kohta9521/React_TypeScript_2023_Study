@@ -5,7 +5,13 @@ import './App.css';
 import { Text } from './Text';
 import Todo from './Todo';
 import { TodoType } from "./types/todo";
+import { UserProfile } from "./UserProfile";
+import { User } from "./types/user";
 
+const user: User = {
+  name: "kohta",
+  hobbies: ["映画", "ゲーム"],
+}
 
 
 function App() {
@@ -21,6 +27,7 @@ function App() {
   return (
     <div className="App">
       <h1>Ts project</h1>
+      <UserProfile user={user} />
       <Text color="red" fontSize="18px" />
 
       <button onClick={onClickFetchData}>データ取得</button>

@@ -7,4 +7,4 @@ const Todo: FC<Omit<TodoType, "id">> = (props) => {
   return <p>{`${completeMark} ${title}(ユーザー${userId})`}</p>
 }
 
-export default Todo;
+export default Todo
