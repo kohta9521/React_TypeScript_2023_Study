@@ -1,9 +1,10 @@
-import "./App.css";
+import React from 'react';
+import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <h1>useState Lesson</h1>
+      <h1>sample code</h1>
     </div>
   );
 }
