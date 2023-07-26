@@ -6,13 +6,13 @@ import Link from "next/link"
 const Header = () => {
   const [ openMenu, setOpenMenu ] = useState(false);
   const menuFunction = () => {
-    setOpenMene(!openMenu);
+    setOpenMenu(!openMenu);
   }
   return (
     <>
       <header id='header' className={styles.header}>
         <div className={styles.logo}>
-          <Link href="/" className={styles.logo}>
+          <Link href="/">
             Kohta
           </Link>
         </div>
@@ -59,6 +59,52 @@ const Header = () => {
           </div>
         </div>
       </header>
+
+      <div className={`${styles.drawerMenu} ${openMenu ? styles.open : undefined}`}>
+        <ul>
+          <div className={styles.close} onClick={() => menuFunction()}>
+            <span></span>
+            <span></span>
+            <p>Close</p>
+          </div>
+          <li>
+            <Link href="/">
+              <p>Home</p>
+              <p>ホーム</p>
+            </Link>
+          </li>
+          <li>
+            <Link href="/">
+              <p>About</p>
+              <p>私について</p>
+            </Link>
+          </li>
+          <li>
+            <Link href="/">
+              <p>Service</p>
+              <p>サービスについて</p>
+            </Link>
+          </li>
+          <li>
+            <Link href="/">
+              <p>Price</p>
+              <p>料金形態</p>
+            </Link>
+          </li>
+          <li>
+            <Link href="/">
+              <p>Member</p>
+              <p>メンバーについて</p>
+            </Link>
+          </li>
+          <li>
+            <Link href="/">
+              <p>Contact</p>
+              <p>連絡をとる</p>
+            </Link>
+          </li>
+        </ul>
+      </div>
     </>
   )
 }
